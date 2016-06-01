@@ -15,8 +15,8 @@ class MorphManager{
 
     public function __construct(ContainerInterface $container){
         $this->container = $container;
-
-        $this->morphind = $this->container->get('kernel')->getRootDir().'/../bin/morphind.v.1.4/MorphInd.pl';
+        $basePath = realpath(dirname(__FILE__)).'/../../../../';
+        $this->morphind = $basePath.'bin/morphind.v.1.4/MorphInd.pl';
     }
 
     public function analyze($word){
