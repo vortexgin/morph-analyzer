@@ -255,7 +255,7 @@ for ( my $i = 0; $i < scalar( @word ); $i++ ) {
 }
 close( TEMP );
 
-my $analysis = `foma/foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
+my $analysis = `$Bin/foma/foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
 $analysis =~ s/\n/\//g;
 $analysis =~ s/\/\#SENTINEL\#\/?/\n/g;
 
@@ -865,7 +865,7 @@ print STDERR "(i): ".$token[ $ii ]."\n";
                     print TEMP "load $Bin/bin-files\/morphind.bin\n";
                     print TEMP "apply up ".$wok[ 0 ].$HELPWORD.$wok[ 2 ]."\n";
                     close( TEMP );
-                    my $analysis = `foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
+                    my $analysis = `$Bin/foma/foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
                     chomp( $analysis );
                     my $temp = $wok[ 0 ].$wok[ 1 ].$wok[ 2 ];
                     $temp =~ s/\-//g;
@@ -1635,7 +1635,7 @@ sub findagain {
     print TEMP "load $Bin/bin-files\/morphind.bin\n";
     print TEMP $find."\n";
     close( TEMP );
-    my $result = `foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
+    my $result = `$Bin/foma/foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
     chomp( $result );
     my $command = `rm $Bin/cache-files/$uniquetmp.tmp`;
 #    print STDERR "fff: \n|".$find."|\n\n";
@@ -1713,7 +1713,7 @@ sub findagain2 {
     print TEMP "load $Bin/bin-files\/morphind.bin\n";
     print TEMP $find."\n";
     close( TEMP );
-    my $analysis = `foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
+    my $analysis = `$Bin/foma/foma -q -f $Bin/cache-files/$uniquetmp.tmp`;
     chomp( $analysis );
     my $command = `rm $Bin/cache-files/$uniquetmp.tmp`;
 #    print STDERR "fff: \n|".$find."|\n\n";
