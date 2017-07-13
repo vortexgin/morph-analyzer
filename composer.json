@@ -1,5 +1,5 @@
 {
-    "name": "admin/morph.analyzer",
+    "name": "vortexgin/morph-analyzer",
     "license": "proprietary",
     "type": "project",
     "autoload": {
