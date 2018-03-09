@@ -30,12 +30,14 @@ class DefaultController extends Controller
         try{
             $post = $request->request->all();
 
-            if(!array_key_exists('word', $post) || empty($post['word'])){
-                return new JsonResponse(array(
-                    'message' => 'Please insert word',
-                    'success' => false,
-                    'timestamp' => new \DateTime()
-                ), 400);
+            if (!array_key_exists('word', $post) || empty($post['word'])) {
+                return new JsonResponse(
+                    array(
+                        'message' => 'Please insert word',
+                        'success' => false,
+                        'timestamp' => new \DateTime()
+                    ), 400
+                );
             }
 
             /* @var $morphManager \Vortexgin\MorphAnalyzerBundle\Manager\MorphManager */
@@ -46,11 +48,13 @@ class DefaultController extends Controller
             return new JsonResponse($return, 200);
         }catch(\Exception $e){
             $this->container->get('logger')->error(sprintf($e->getMessage()));
-            return new JsonResponse(array(
-                'message' => 'Analyze failed, Please try again later',
-                'success' => false,
-                'timestamp' => new \DateTime()
-            ), 412);
+            return new JsonResponse(
+                array(
+                    'message' => 'Analyze failed, Please try again later',
+                    'success' => false,
+                    'timestamp' => new \DateTime()
+                ), 412
+            );
         }
     }
 }
