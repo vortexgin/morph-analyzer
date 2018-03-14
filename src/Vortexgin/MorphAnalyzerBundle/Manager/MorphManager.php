@@ -28,7 +28,7 @@ class MorphManager
             $process->run();
 
             if (!$process->isSuccessful()) {
-                return false;
+                throw new ProcessFailedException($process);
             }
 
             $output = $process->getOutput();
@@ -38,6 +38,8 @@ class MorphManager
                 'word' => $word,
                 'morph' => $return,
             );
+        } catch(ProcessFailedException $e) {
+            return false;
         }catch(\Exception $e){
             return false;
         }
